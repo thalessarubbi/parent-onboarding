@@ -172,7 +172,7 @@ module.exports = {
           primary: '#0d6efd',
           'primary-dark': '#1b511d',
           'primary-medium': '#43ae38',
-          accent: '#ceff00',
+          accent: '#D4AF00',
           'accent-bright': '#feff00',
           background: '#FBE9C5',
         },
