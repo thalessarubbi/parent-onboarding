@@ -3,7 +3,8 @@ import { GluestackUIProvider } from "@/src/components/ui/gluestack-ui-provider";
 import { useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { RubikDirt_400Regular, useFonts } from '@expo-google-fonts/rubik-dirt';
-import { SignUpScreen } from './src/screen/SignUpScreen';
+import { Routes } from "./src/routes";
+import { AuthContextProvider } from "./src/contexts/AuthContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,8 +25,9 @@ export default function App() {
   
   return (
     <GluestackUIProvider mode="light">
-      {/* <WelcomeScreen /> */}
-      <SignUpScreen />
+      <AuthContextProvider>
+        <Routes />
+      </AuthContextProvider>
     </GluestackUIProvider>
   );
 }

@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { KeyboardAvoidingView, Platform, ScrollView } from "react-native"
 import { useRef } from "react"
+import { useAuth } from "@/src/hooks/useAuth"
 
 const signUpSchema = z.object({
   name: z.string().min(1, { message: 'Please enter your name' }),
@@ -31,7 +32,7 @@ export type SignUpFormData = z.infer<typeof signUpSchema>
 
 export const SignUpScreen = () => {
   const pagerRef = useRef<PagerView>(null)
-  
+  const { signUp } = useAuth()
   const { control, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
     defaultValues: {
       name: '',
@@ -45,7 +46,15 @@ export const SignUpScreen = () => {
   })
 
   const onSubmit = (data: SignUpFormData) => {
-    console.log(data)
+    signUp({
+      id: new Date().getTime().toString(),
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      role: data.role,
+      familyGoals: data.familyGoals,
+      familyValues: data.familyValues,
+    })
   }
 
   return (

@@ -40,6 +40,8 @@ export const SignUpFirstStep = ({ control, errors, onNext }: SignUpFirstStepProp
             <InputField
               type="text"
               placeholder="Enter your email"
+              keyboardType="email-address"
+              autoCapitalize="none"
               value={value}
               onChangeText={onChange}
             />
@@ -58,6 +60,7 @@ export const SignUpFirstStep = ({ control, errors, onNext }: SignUpFirstStepProp
             <InputField
               type="text"
               placeholder="Enter your phone number"
+              keyboardType="numeric"
               value={value}
               onChangeText={onChange}
             />
